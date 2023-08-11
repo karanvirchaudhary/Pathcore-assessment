@@ -1,20 +1,47 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PartDescriptor from '../components/PartDescriptor';
-import { decrementPart, incrementPart } from '../actions/parts';
+import { createNewPart, decrementPart, incrementPart } from '../actions/parts';
 import { partsSelector } from '../selectors/local';
 
 import './Home.sass';
 
 const Home = () => {
   const [selectedPart, setSelectedPart] = useState<string>(null);
+  const [newPartName, setNewPartName] = useState<string>('');
   const parts = useSelector(partsSelector);
   const dispatch = useDispatch();
+
+  const validateNewPartName = (partName: string) => {
+    if (!newPartName || parts.find(part => part.name === partName) || typeof partName !== 'string'){
+      return false;
+    }
+
+    return true;
+  };
+
+  const handleCreateNewPart = () => {
+      dispatch(createNewPart(newPartName));
+      setNewPartName('');
+  };
 
   return (
     <div>
       <h1>Parts Counter</h1>
       <hr />
+      <input
+        type='text'
+        name='newPartName'
+        id='newPartName'
+        onChange={e => setNewPartName(e.target.value)} value={newPartName}
+      />
+      <button
+        onClick={() => handleCreateNewPart()}
+        disabled={!validateNewPartName(newPartName)}
+      >
+        Create Part
+      </button>
+
       <ul className="partsList">
         {parts.map(part => (
           <li

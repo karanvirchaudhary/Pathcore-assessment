@@ -1,5 +1,5 @@
 import { AnyAction } from 'redux';
-import { DECREMENT_PART, INCREMENT_PART } from '../../actions/parts';
+import { CREATE_PART, DECREMENT_PART, INCREMENT_PART } from '../../actions/parts';
 
 // import { v4 as uuid } from 'uuid';
 
@@ -40,6 +40,10 @@ const partsReducer = (state = initialState, action: AnyAction) => {
         ...part,
         amount: part.amount - 1
       } : part);
+    }
+
+    case CREATE_PART: {
+      return [...state, {name: action.partName, amount: 0}];
     }
 
     default:
