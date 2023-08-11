@@ -1,2 +1,83 @@
+$primary: #80a08f
+
+.container
+    display: flex
+    flex-direction: row
+    justify-content: space-around
+    padding: 0 12px
+    height: 100%
+    gap: 24px
+
+input
+    padding: 8px
+
+button
+    padding: 8px
+    background-color: $primary
+    color: white
+    border: 2px solid $primary
+    font-size: 14px
+    border-radius: 6px
+
+
+.partsCounterColumn
+    display: flex
+    flex-direction: column
+    width: 50%
+    background-color: white
+    border-radius: 12px
+    padding: 12px 24px
+
+    h1
+        color: $primary
+
+    input
+        border: 0
+        border-bottom: 2px solid $primary
+
+    button
+        margin-top: 10px
+
+        &:disabled
+            opacity: 0.5
+
+.partsInfoColumn
+    display: flex
+    flex-direction: column
+    justify-content: left
+    text-align: left
+    width: 50%
+    padding: 12px 24px
+    background-color: $primary
+    border-radius: 12px
+    color: white
+
+    input
+        border-radius: 6px
+        border: 1px solid $primary
+        width: 100%
+        min-height: 40px
+
 .partsList
     list-style-type: none
+    padding: 12px
+
+    li
+        padding: 20px
+        display: flex
+        flexDirection: row
+        gap: 20px
+        align-items: center
+        border-radius: 12px
+        border: 2px solid #f0f0f0
+        margin: 10px 0
+        justify-content: center
+
+        button
+            align-items: center
+            background-color: $primary
+            border-radius: 8px
+            border: 2px solid black
+            padding: 8px
+            font-size: 18px
+            color: white
