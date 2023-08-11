@@ -51,6 +51,7 @@ const Home = () => {
           >
             {part.name} {part.amount}
             <button
+              disabled={part.name !== selectedPart}
               onClick={e => {
                 dispatch(incrementPart(part.name));
               }}
@@ -58,6 +59,7 @@ const Home = () => {
               +
             </button>
             <button
+              disabled={part.name !== selectedPart}
               onClick={e => {
                 dispatch(decrementPart(part.name));
               }}
