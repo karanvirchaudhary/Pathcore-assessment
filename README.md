@@ -9,8 +9,9 @@ The packages required to solve this assessment are already in project, so adding
 - `Node v16+`
 - `yarn`
 
-# Run
-
+# Instructions to Run
+1. Clone the repository or download the repo
+2. Run the following command:
 ```
 yarn
 yarn dev
